@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F2D5BA4-DF67-4044-ADB7-574C2D51AF0F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AromasEstoque</RootNamespace>
+    <AssemblyName>Aromas</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>perfume.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AromasDatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AromasDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AromasDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AromasDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AromasDatabase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CustomerSelectorController.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FromToDatetime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FromToDatetime.Designer.cs">
+      <DependentUpon>FromToDatetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICustomerSelector.cs" />
+    <Compile Include="Interfaces\IPendingPayments.cs" />
+    <Compile Include="Job.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sale.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SaleDetail.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceProvider.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VaultBalance.cs">
+      <DependentUpon>AromasDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CashierOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CashierOperations.Designer.cs">
+      <DependentUpon>CashierOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Comission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Comission.Designer.cs">
+      <DependentUpon>Comission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CashierOperationsController.cs" />
+    <Compile Include="Controllers\PaymentGatewayController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Views\CustomerSelectorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerSelectorControl.Designer.cs">
+      <DependentUpon>CustomerSelectorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICasherOperations.cs" />
+    <Compile Include="Interfaces\IPaymentController.cs" />
+    <Compile Include="Interfaces\IServiceController.cs" />
+    <Compile Include="Interfaces\IServiceProviderManagement.cs.cs" />
+    <Compile Include="Controllers\XMLImportController.cs" />
+    <Compile Include="Views\DebtPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DebtPayment.Designer.cs">
+      <DependentUpon>DebtPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportXml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ImportXml.Designer.cs">
+      <DependentUpon>ImportXml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ISubjectIObserver.cs" />
+    <Compile Include="Interfaces\IPointOfSale.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Interfaces\ITransactionsDashboard.cs" />
+    <Compile Include="Views\PaymentGatewayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PaymentGatewayControl.Designer.cs">
+      <DependentUpon>PaymentGatewayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PendingPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PendingPayments.Designer.cs">
+      <DependentUpon>PendingPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PointOfSaleController.cs" />
+    <Compile Include="Controllers\PendingPaymentsController.cs" />
+    <Compile Include="Views\AddUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateProduct.Designer.cs">
+      <DependentUpon>AddUpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUpdateServiceProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateServiceProvider.Designer.cs">
+      <DependentUpon>AddUpdateServiceProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateCustomer.Designer.cs">
+      <DependentUpon>AddUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateEmployee.Designer.cs">
+      <DependentUpon>AddUpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerManagement.Designer.cs">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeManagement.Designer.cs">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PointOfSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PointOfSale.Designer.cs">
+      <DependentUpon>PointOfSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductManagement.Designer.cs">
+      <DependentUpon>ProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ServiceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ServiceManagement.Designer.cs">
+      <DependentUpon>ServiceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ServiceProviderController.cs" />
+    <Compile Include="Views\ServiceProviderManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ServiceProviderManagement.Designer.cs">
+      <DependentUpon>ServiceProviderManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Views\TransactionsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionsDashboard.Designer.cs">
+      <DependentUpon>TransactionsDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainDashboard.Designer.cs">
+      <DependentUpon>MainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FromToDatetime.resx">
+      <DependentUpon>FromToDatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CashierOperations.resx">
+      <DependentUpon>CashierOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Comission.resx">
+      <DependentUpon>Comission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerSelectorControl.resx">
+      <DependentUpon>CustomerSelectorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DebtPayment.resx">
+      <DependentUpon>DebtPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImportXml.resx">
+      <DependentUpon>ImportXml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PaymentGatewayControl.resx">
+      <DependentUpon>PaymentGatewayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PendingPayments.resx">
+      <DependentUpon>PendingPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateProduct.resx">
+      <DependentUpon>AddUpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateServiceProvider.resx">
+      <DependentUpon>AddUpdateServiceProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateCustomer.resx">
+      <DependentUpon>AddUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateEmployee.resx">
+      <DependentUpon>AddUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerManagement.resx">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeManagement.resx">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PointOfSale.resx">
+      <DependentUpon>PointOfSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductManagement.resx">
+      <DependentUpon>ProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ServiceManagement.resx">
+      <DependentUpon>ServiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ServiceProviderManagement.resx">
+      <DependentUpon>ServiceProviderManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TransactionsDashboard.resx">
+      <DependentUpon>TransactionsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainDashboard.resx">
+      <DependentUpon>MainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="AromasDatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AromasDatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AromasDatabase.edmx.diagram">
+      <DependentUpon>AromasDatabase.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="Humanizer.Core.pt">
+      <Version>2.8.26</Version>
+    </PackageReference>
+    <PackageReference Include="MetroModernUI">
+      <Version>1.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-can-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AromasDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AromasDatabase.edmx</DependentUpon>
+      <LastGenOutput>AromasDatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AromasDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AromasDatabase.edmx</DependentUpon>
+      <LastGenOutput>AromasDatabase.cs</LastGenOutput>
+    </Content>
+    <Content Include="perfume.ico" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\down_arrow.png" />
+    <None Include="Resources\up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
